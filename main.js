@@ -81,7 +81,14 @@ app.post('/login' , async (req,res)=>{
   const {email ,password}= req.body
 
 if(!email) return res.status(400).send({error: "email is required"})
-i
+if(!password) return res.status(400).send({error: "password is required"})
+
+
+  const existuser =await alluser.findOne({
+    email
+  })
+
+  
 
 
 
