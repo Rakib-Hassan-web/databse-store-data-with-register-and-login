@@ -43,6 +43,11 @@ app.post('/register' , async (req,res) =>{
 
 
 
+if(!name) return res.status(400).send({error: "name is required"})
+
+
+
+
   res.status(200).send({ success : "account registered"})
 
 
