@@ -39,7 +39,23 @@ const mula =mongoose.model('alllllusers' ,kola)
 // ---reg
 
 
+app.post('/register' ,async (req,res)=>{
 
+
+  const{name ,email,password} =req.body
+
+
+if(!name) return res.send('name nai ken')
+if(!email) return res.send('email nai ken')
+if(!password) return res.send('password nai ken')
+
+
+
+
+
+
+  res.send('createed')
+})
 
 
 
