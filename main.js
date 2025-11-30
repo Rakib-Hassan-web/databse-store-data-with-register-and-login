@@ -88,7 +88,10 @@ if(!password) return res.status(400).send({error: "password is required"})
     email
   })
 
-  
+  if(!existuser) return res.status(400).send({ error: "user is not exist"})
+
+
+
 
 
 
