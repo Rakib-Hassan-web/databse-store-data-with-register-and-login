@@ -50,7 +50,32 @@ if(!password) return res.status(400).send({error: "password is required"})
 
 
 
-  res.status(200).send({ success : "account registered"})
+
+
+  const existinguser = await alluser.findOne({
+    email
+  })
+
+  if( existinguser)  return res.status(400).send({error: "user already exist"})
+
+
+    const newuser =new alluser ({
+      name,email,password
+    })
+
+    newuser.save()
+
+
+
+
+
+
+
+
+
+
+
+  res.status(200).send({ success : "account registered" ,newuser})
 
 
 })
