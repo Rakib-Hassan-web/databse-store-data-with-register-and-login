@@ -91,6 +91,8 @@ if(!password) return res.status(400).send({error: "password is required"})
   if(!existuser) return res.status(400).send({ error: "user is not exist"})
 
 
+    if(existuser.password !== password) return res.status(400).send({ error: "invalid password"})
+
 
 
 
