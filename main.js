@@ -44,6 +44,8 @@ app.post('/register' , async (req,res) =>{
 
 
 if(!name) return res.status(400).send({error: "name is required"})
+if(!email) return res.status(400).send({error: "email is required"})
+if(!password) return res.status(400).send({error: "password is required"})
 
 
 
