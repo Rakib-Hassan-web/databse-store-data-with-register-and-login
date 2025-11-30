@@ -36,6 +36,19 @@ const alluser =mongoose.model('user' ,Userinfo)
 // -------------regiser
 
 
+app.post('/register' , async (req,res) =>{
+
+
+  const{name,email,password} = req.body;
+
+
+
+  res.status(200).send({ success : "account registered"})
+
+
+})
+
+
 
 
 app.get('/' ,(req,res)=>{
