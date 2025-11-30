@@ -51,10 +51,22 @@ if(!password) return res.send('password nai ken')
 
 
 
+  const manushache = await mula.findOne({email})
+
+
+  if(manushache) return res.send('ai email dia ache')
 
 
 
-  res.send('createed')
+    const notunbudai =new mula({
+      name,email,password
+    })
+
+
+
+    notunbudai.save()
+
+  res.send({ success: 'created' , notunbudai})
 })
 
 
