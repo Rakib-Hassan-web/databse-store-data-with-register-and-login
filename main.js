@@ -75,7 +75,16 @@ if(!password) return res.status(400).send({error: "password is required"})
 
 
 app.post('/login' , async (req,res)=>{
-  
+
+
+
+  const {email ,password}= req.body
+
+if(!email) return res.status(400).send({error: "email is required"})
+i
+
+
+
 })
 
 
