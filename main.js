@@ -17,71 +17,66 @@ mongoose.connect('mongodb+srv://secondwork:rr3qaILNgW6gmnEb@cluster0.7ooynjm.mon
 
 
 
+
 const Schema = mongoose.Schema;
 
+const Userinfo = new Schema({
 
-const kola = new Schema({
- 
-
-  name:String,
+  name :String,
   email:String,
   password:String,
+
+
+
 });
 
-
-const mula =mongoose.model('alllllusers' ,kola)
-
+const alluser =mongoose.model('user' ,Userinfo)
 
 
+// -------------regiser
 
 
-
-// ---reg
-
-
-app.post('/register' ,async (req,res)=>{
+app.post('/register' , async (req,res) =>{
 
 
-  const{name ,email,password} =req.body
-
-
-if(!name) return res.send('name nai ken')
-if(!email) return res.send('email nai ken')
-if(!password) return res.send('password nai ken')
+  const{name,email,password} = req.body;
 
 
 
-  const manushache = await mula.findOne({email})
+if(!name) return res.status(400).send({error: "name is required"})
+if(!email) return res.status(400).send({error: "email is required"})
+if(!password) return res.status(400).send({error: "password is required"})
 
 
-  if(manushache) return res.send('ai email dia ache')
 
 
 
-    const notunbudai =new mula({
+
+  const existinguser = await alluser.findOne({
+    email
+  })
+
+  if( existinguser)  return res.status(400).send({error: "user already exist"})
+
+
+    const newuser =new alluser ({
       name,email,password
     })
 
+    newuser.save()
+
+  res.status(200).send({ success : "account registered" ,newuser})
 
 
-    notunbudai.save()
-
-  res.send({ success: 'created' , notunbudai})
 })
 
 
+// --------login 
 
 
-
-
-
-
-
-
-
-
-
-
+app.post('/login' , async (req,res)=>{
+  
+})
 
 
 app.get('/' ,(req,res)=>{
