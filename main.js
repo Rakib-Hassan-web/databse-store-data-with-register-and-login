@@ -10,7 +10,7 @@ app.use(express.json())
 
 
 
-mongoose.connect('')
+mongoose.connect('mongodb+srv://secondwork:rr3qaILNgW6gmnEb@cluster0.7ooynjm.mongodb.net/secondwork?appName=Cluster0')
   .then(() => console.log(' database Connected!'));
 
 
