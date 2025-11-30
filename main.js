@@ -17,6 +17,44 @@ mongoose.connect('mongodb+srv://secondwork:rr3qaILNgW6gmnEb@cluster0.7ooynjm.mon
 
 
 
+const Schema = mongoose.Schema;
+
+
+const kola = new Schema({
+ 
+
+  name:String,
+  email:String,
+  password:String,
+});
+
+
+const mula =mongoose.model('alllllusers' ,kola)
+
+
+
+
+
+
+// ---reg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.get('/' ,(req,res)=>{
     res.send('hello rakib here')
